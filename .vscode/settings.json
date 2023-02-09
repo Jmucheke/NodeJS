@@ -1,0 +1,20 @@
+{
+  "sqltools.connections": [
+    {
+      "mssqlOptions": {
+        "appName": "SQLTools",
+        "useUTC": true,
+        "encrypt": true,
+        "instanceName": "DESKTOP-82ETMHD"
+      },
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 1433,
+      "askForPassword": true,
+      "driver": "MSSQL",
+      "database": "Airport",
+      "username": "sa",
+      "name": "Jay"
+    }
+  ]
+}

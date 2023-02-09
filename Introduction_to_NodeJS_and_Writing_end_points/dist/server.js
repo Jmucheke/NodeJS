@@ -22,41 +22,16 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importStar(require("express"));
+const Routes_1 = __importDefault(require("./Routes"));
 const app = (0, express_1.default)();
 //Middlewares
 app.use((0, express_1.json)()); // add the body to the Request
-const todos = []; // todos is of type Todo array
-// Get all Todos
-app.get('/todos', (req, res) => {
-    res.status(200).json(todos);
-});
-app.get('/todos/:id', (req, res) => {
-    const id = +req.params.id;
-    const index = todos.findIndex(x => x.id === id);
-    if (index < 0) {
-        return res.status(404).json({ message: "Todo not found" });
-    }
-    return res.status(200).json(todos[index]);
-});
-// Adding a new Todo
-app.post('/todos', (req, res) => {
-    const { title, description } = req.body; // data passed at the body
-    todos.push({ title, description, id: Math.floor(Math.random() * 1000) });
-    return res.status(201).json({ message: 'Todo Added Successfully' });
-});
-// Update a Todo
-app.get('/todos/:id', (req, res) => {
-    const id = +req.params.id;
-    const index = todos.findIndex(x => x.id === id);
-    if (index < 0) {
-        return res.status(404).json({ message: "Todo not found" });
-    }
-    const { title, description } = req.body;
-    todos[index] = Object.assign(Object.assign({}, todos[index]), { title, description });
-    res.status(200).json({ message: "Todo Updated Successfully" });
-});
+app.use('/todos', Routes_1.default);
 app.listen(4000, () => {
     console.log("App is Running.....");
 });

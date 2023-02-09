@@ -1,0 +1,3 @@
+--CREATE DATABASE Airport;
+
+CREATE TABLE FlightBookings(Id VARCHAR(50),)
