@@ -1,0 +1,21 @@
+{
+  "name": "background_services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "nodemailer": "^6.9.1"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.1",
+    "@types/nodemailer": "^6.4.7"
+  }
+}
