@@ -43,3 +43,40 @@ function RegisterUser(req, res) {
     });
 }
 exports.RegisterUser = RegisterUser;
+// // Endpoint to reset the password
+// export const resetPassword: RequestHandler = async (req, res) => {
+//  const email = req.body.email;
+//  const sqlQuery = `SELECT * FROM users
+//                       WHERE email = '${email}'`;
+//  // Execute the query
+//  request.query(sqlQuery, (err, result) => {
+//   if (err) {
+//    console.error(err);
+//    return res.status(500).json({
+//     message: 'An error occurred while searching for the user'
+//    });
+//   }
+//   // If the user was not found, return an error
+//   if (!result.recordset.length) {
+//    return res.status(404).json({
+//     message: 'User not found'
+//    });
+//   }
+//   const user = result.recordset[0];
+//   const newPasswordHash = bcrypt.hashSync(req.body.password, 10);
+//   const updateQuery = `UPDATE users
+//                             SET password = '${newPasswordHash}'
+//                             WHERE id = ${user.id}`;
+//   request.query(updateQuery, (err, result) => {
+//    if (err) {
+//     console.error(err);
+//     return res.status(500).json({
+//      message: 'An error occurred while resetting the password'
+//     });
+//    }
+//    return res.status(200).json({
+//     message: 'Password reset successful'
+//    });
+//   });
+//  });
+// }
